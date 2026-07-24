@@ -425,17 +425,6 @@ int main(int argc, char **argv){
 
   std::vector<double> error_ml =  multilvl_mls(target, N, nu, L, r, last_refinement);
   std::vector<double> error_sl = singlelvl_mls(target, N, nu, L, r, last_refinement);
-
-  int sl_factor_N   = 1;
-  int sl_factor_res = last_refinement;
-
-  for(int i = 1; i < L; i++){sl_factor_res *= 2;}
-
-  for(int i = 0; i < L; i++){
-    error_sl[i] = multilvl_mls(target, sl_factor_N*N, nu, 1, r, sl_factor_res)[0];
-    sl_factor_N   *= 2;
-    sl_factor_res /= 2;
-  }
   
   write_csv(error_sl, error_ml, "errors.csv");
 
