@@ -259,7 +259,7 @@ std::vector<double> multilvl_mls(int target, int N, double nu, int L, int r, int
       for(int i = grid.i_min + shift; i <= grid.i_max - shift; i++){
         for(int j = grid.j_min + shift; j <= grid.j_max - shift; j++){
 
-          // Project fine-grid index (i,j) to the near coarse point in X_{h_lvl}
+          // Project fine-grid index (i,j) to near coarse point in X_{h_lvl}
           const int proj_i = i - (i % lf);
           const int proj_j = j - (j % lf);
 
